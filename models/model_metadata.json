@@ -1,0 +1,29 @@
+{
+  "model_type": "MultinomialNB",
+  "vectorizer": "TfidfVectorizer(ngram_range=(1,1), sublinear_tf=True)",
+  "smoothing_alpha": 0.5,
+  "total_samples": 480,
+  "train_samples": 384,
+  "test_samples": 96,
+  "num_classes": 16,
+  "classes": [
+    "crop_cultivation",
+    "fertilizer",
+    "general_agriculture",
+    "government_schemes",
+    "harvesting",
+    "irrigation",
+    "market_prices",
+    "organic_farming",
+    "pest_control",
+    "plant_disease",
+    "rice_cultivation",
+    "seed_selection",
+    "soil_health",
+    "vegetable_cultivation",
+    "weather",
+    "weed_management"
+  ],
+  "train_accuracy": 0.9948,
+  "test_accuracy": 0.625
+}

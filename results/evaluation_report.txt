@@ -1,0 +1,49 @@
+======================================================================
+AGRICULTURE CHATBOT - NAIVE BAYES CLASSIFIER EVALUATION REPORT
+======================================================================
+Evaluation Dataset : models\heldout_test_data.csv
+Total Test Samples : 96
+Total Topic Classes: 16
+Algorithm          : Multinomial Naive Bayes (Laplace smoothing alpha=0.5)
+Feature Extraction : TF-IDF Vectorizer (ngram_range=(1,1), sublinear_tf=True)
+----------------------------------------------------------------------
+OVERALL SUMMARY METRICS:
+  * Accuracy         : 62.50%
+  * Macro Precision  : 67.94%
+  * Macro Recall     : 62.50%
+  * Macro F1-Score   : 61.47%
+  * Weighted F1-Score: 61.47%
+----------------------------------------------------------------------
+PER-CLASS CLASSIFICATION BREAKDOWN:
+                       precision    recall  f1-score   support
+
+     crop_cultivation     0.3750    0.5000    0.4286         6
+           fertilizer     0.5556    0.8333    0.6667         6
+  general_agriculture     0.5000    0.5000    0.5000         6
+   government_schemes     0.6667    1.0000    0.8000         6
+           harvesting     1.0000    0.1667    0.2857         6
+           irrigation     0.7500    0.5000    0.6000         6
+        market_prices     0.8333    0.8333    0.8333         6
+      organic_farming     1.0000    0.5000    0.6667         6
+         pest_control     0.6667    0.6667    0.6667         6
+        plant_disease     0.5714    0.6667    0.6154         6
+     rice_cultivation     0.5000    0.6667    0.5714         6
+       seed_selection     0.7143    0.8333    0.7692         6
+          soil_health     0.5000    0.6667    0.5714         6
+vegetable_cultivation     0.5714    0.6667    0.6154         6
+              weather     0.6667    0.3333    0.4444         6
+      weed_management     1.0000    0.6667    0.8000         6
+
+             accuracy                         0.6250        96
+            macro avg     0.6794    0.6250    0.6147        96
+         weighted avg     0.6794    0.6250    0.6147        96
+
+----------------------------------------------------------------------
+ACADEMIC DISCUSSION ON ERROR MODES & SEMANTIC OVERLAPS:
+1. Semantic Inseparability: Queries like 'bacterial leaf streak in paddy' inherently span
+   both 'plant_disease' and 'rice_cultivation'. Naive Bayes outputs probabilities reflecting
+   this ambiguity, which downstream search queries resolve by using the raw user tokens.
+2. Retrieval Independence: Even when topic classification selects a closely related topic
+   (e.g., 'weed_management' vs 'crop_cultivation'), the online retrieval module anchors on
+   the farmer's exact query terms, ensuring factual answers are retrieved regardless.
+======================================================================

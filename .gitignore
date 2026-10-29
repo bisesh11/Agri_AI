@@ -1,0 +1,17 @@
+# Environment & Secrets
+.env
+.venv/
+env/
+venv/
+__pycache__/
+*.pyc
+
+# Model Artefacts & Cache
+.pytest_cache/
+.ipynb_checkpoints/
+chrome_temp/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
